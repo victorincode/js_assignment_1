@@ -100,6 +100,14 @@ vowel here.
 Example string: 'The quick brown fox' 
 Expected Output: 5 */
 
+function countVowels(word){
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    for(let letter of word){
+        if(vowels.includes(letter)) count++;
+    }
+    return count;
+}
 
 /* 8. Write a JavaScript function that accepts a number as a parameter and check the number is
 prime or not. 
@@ -111,6 +119,10 @@ divisors other than 1 and itself. */
 Note: There are six possible values that typeof returns: object, boolean, function, number, string,
 and undefined. */
 
+function returnType(argument){
+    return typeof argument;
+}
+
 
 /* 10. Write a JavaScript function which returns the n rows by n columns identity matrix. */
 
@@ -118,6 +130,11 @@ and undefined. */
 lowest and second greatest numbers, respectively.                
 Sample array: [1,2,3,4,5]
 Expected Output: 2,4  */
+
+function findSecondNumbers(nums){
+    let sortedNums = nums.sort();
+    return `${sortedNums[1]},${sortedNums[sortedNums.length-2]}`
+}
 
 
 /* 12. Write a JavaScript function which says whether a number is perfect. 
@@ -176,6 +193,13 @@ will count the number of occurrences of the specified letter within the string.
 Sample arguments: 'microsoft.com', 'o' 
 Expected output: 3     */         
 
+function howManyTimes(word, key){
+    let count = 0;
+    for(let letter of word){
+        if(letter == key) count++;
+    }
+    return count;
+}
 
 /* 23. Write a JavaScript function to find the first not repeated character. 
 Sample arguments: 'abacddbec' 
@@ -194,8 +218,13 @@ Expected output: [3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 
 longest country name as output. 
 Sample function: Longest_Country_Name(["Australia", "Germany", "United States of America"])
 Expected output: "United States of America" */
-
-
+function longestCountryName(countries){
+    let longestCountry = "";
+    for(let country of countries){
+        if(country.length > longestCountry.length) longestCountry = country;
+    }
+    return longestCountry;
+}
 /* 26. Write a JavaScript function to find longest substring in a given a string without repeating
 characters. */ 
 
@@ -215,5 +244,20 @@ palindromic substring. */
 
 /* 28. Write a JavaScript program to pass a 'JavaScript function' as parameter.  */
 
+function passAnotherFunction(otherFunction){
+    otherFunction();
+}
+function otherFunction(){
+    console.log("otherFunction() is running.");
+}
+//input: passAnotherFunction(otherFunction);
+//output: "otherFunction() is running."
 
 /* 29. Write a JavaScript function to get the function name. */
+
+function getFunctionName(otherFunction){
+    return otherFunction.name;
+}
+function randomFunction(){};
+//input: getFunctionName(randomFunction)
+//output: randomFunction
