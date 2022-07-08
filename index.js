@@ -160,6 +160,10 @@ Output: 25, 10, 10, 1 */
 /* 15. Write a JavaScript function to compute the value of bn where n is the exponent and b is the
 bases. Accept b and n from the user and display the result.  */
 
+function toThePower(base, exponent){
+    if(exponent == 1) return base;
+    return base * toThePower(base, exponent-1);
+}
 
 /* 16. Write a JavaScript function to extract unique characters from a string. 
 Example string: "thequickbrownfoxjumpsoverthelazydog"
