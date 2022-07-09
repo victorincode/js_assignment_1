@@ -198,12 +198,11 @@ Sample arguments: 'microsoft.com', 'o'
 Expected output: 3     */         
 
 function howManyTimes(word, key){
-    let count = 0;
-    for(let letter of word){
-        if(letter == key) count++;
-    }
-    return count;
+    let regex = RegExp(key, "g");
+    let times = word.match(regex);
+    return times.length;
 }
+
 
 /* 23. Write a JavaScript function to find the first not repeated character. 
 Sample arguments: 'abacddbec' 
