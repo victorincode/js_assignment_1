@@ -209,6 +209,24 @@ function howManyTimes(word, key){
 Sample arguments: 'abacddbec' 
 Expected output: 'e'  */
 
+function getNonRepeatedCharacter(characters){
+    //do this with a hashmap to keep track of the values.
+    const repeatedChars = new Map();
+    for(let char of characters){
+        //increment value or set it to 1 if it's undefined.
+        repeatedChars.set(char, (repeatedChars.get(char) + 1 ) || 1);
+    }
+    let no_repeats = "";
+    for(let [key, value] of repeatedChars){
+        // if the value is 1, this is the first letter that has not been repeated
+        if(value == 1){
+            no_repeats = key;
+            break;
+        }
+    }
+    return no_repeats;
+}
+
 
 /* 24. Write a JavaScript function to apply Bubble Sort algorithm. 
 Note: According to wikipedia "Bubble sort, sometimes referred to as sinking sort, is a simple
