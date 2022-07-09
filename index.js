@@ -169,6 +169,13 @@ function toThePower(base, exponent){
 Example string: "thequickbrownfoxjumpsoverthelazydog"
 Expected Output: "thequickbrownfxjmpsvlazydg" */
 
+function getUniqueCharacters(phrase){
+    let unique = "";
+    for(let letter of phrase){
+        if(!unique.includes(letter)) unique += letter;
+    }
+    return unique;
+}
 
 /* 17. Write a JavaScript function to get the number of occurrences of each letter in specified string. */
 
@@ -181,7 +188,6 @@ function numberOfOccurences(word){
     }
     return occurences;
 }
-console.log(numberOfOccurences("look"));
 
 /* 18. Write a function for searching JavaScript arrays with a binary search. 
 Note: A binary search searches by splitting an array into smaller and smaller chunks until it finds
