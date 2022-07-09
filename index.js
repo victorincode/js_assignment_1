@@ -115,15 +115,14 @@ Note: A prime number (or a prime) is a natural number greater than 1 that has no
 divisors other than 1 and itself. */
 
 function isPrime(num){
+    if(num <= 1) return false;
     let prime = true;  
-    if(num > 1){
-        for(let i=2; i<num; i++){
-            if(num % i == 0){
-                prime = false;
-                break;
-            }
+    for(let i=2; i<num; i++){
+        if(num % i == 0){
+            prime = false;
+            break;
         }
-    } else prime = false;
+    }
     return prime;
 }
 
@@ -159,8 +158,26 @@ Example: The first perfect number is 6, because 1, 2, and 3 are its proper posit
 2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by the
 perfect numbers 496 and 8128. */
 
+function isPerfectNumber(num){
+    let factors = factorsOfNumber(num);
+    // need to remove the last element so that the number doesn't include itself
+    factors.pop();
+    let sum = 0;
+    for(let factor of factors){
+        sum += factor;
+    }
+    return sum == num;
+}
 
 /* 13. Write a JavaScript function to compute the factors of a positive integer.  */
+
+function factorsOfNumber(num){
+    const factors = [];
+    for(let i=1; i<=num; i++){
+        if(num % i == 0) factors.push(i);
+    }
+    return factors;
+}
 
 
 /* 14. Write a JavaScript function to convert an amount to coins. 
@@ -207,7 +224,13 @@ the desired value. */
 
 
 /* 19. Write a JavaScript function that returns array elements larger than a number.  */
-
+function elementsLargerThanNumber(array, targetNum){
+    const largerNums = [];
+    for(let num of array){
+        if(num > targetNum) largerNums.push(num);
+    }
+    return largerNums;
+}
 
 
 /* 20. Write a JavaScript function that generates a string id (specified length) of random characters.
@@ -319,6 +342,7 @@ In some applications it may be necessary to return all maximal palindromic subst
 substrings that are themselves palindromes and cannot be extended to larger palindromic
 substrings) rather than returning only one substring or returning the maximum length of a
 palindromic substring. */
+
 
 
 /* 28. Write a JavaScript program to pass a 'JavaScript function' as parameter.  */
