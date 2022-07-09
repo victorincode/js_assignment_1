@@ -265,6 +265,25 @@ function longestCountryName(countries){
 /* 26. Write a JavaScript function to find longest substring in a given a string without repeating
 characters. */ 
 
+function getLongestSubstring(phrase){
+    let allSubstrings = [];
+    let substring = "";
+    for(let letter of phrase){
+        if(substring.includes(letter)){
+            allSubstrings.push(substring);
+            substring = "";
+        } else{
+            substring += letter;
+        }
+    }
+    allSubstrings.push(substring);
+    let biggerSubstring = "";
+    for(let i=0; i<allSubstrings.length; i++){
+        if(allSubstrings[i].length > biggerSubstring.length) biggerSubstring = allSubstrings[i];
+    }
+    return biggerSubstring;
+}
+
 
 /* 27. Write a JavaScript function that returns the longest palindrome in a given string. 
 Note: According to Wikipedia "In computer science, the longest palindromic substring or longest
