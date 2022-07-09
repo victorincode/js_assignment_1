@@ -172,6 +172,16 @@ Expected Output: "thequickbrownfxjmpsvlazydg" */
 
 /* 17. Write a JavaScript function to get the number of occurrences of each letter in specified string. */
 
+function numberOfOccurences(word){
+    const occurences = {};
+    for(let letter of word){
+        //increment value or set it to 1 if it's undefined.
+        if(occurences[letter]) occurences[letter] += 1;
+        else occurences[letter] = 1;
+    }
+    return occurences;
+}
+console.log(numberOfOccurences("look"));
 
 /* 18. Write a function for searching JavaScript arrays with a binary search. 
 Note: A binary search searches by splitting an array into smaller and smaller chunks until it finds
