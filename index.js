@@ -114,6 +114,18 @@ prime or not.
 Note: A prime number (or a prime) is a natural number greater than 1 that has no positive
 divisors other than 1 and itself. */
 
+function isPrime(num){
+    let prime = true;  
+    if(num > 1){
+        for(let i=2; i<num; i++){
+            if(num % i == 0){
+                prime = false;
+                break;
+            }
+        }
+    } else prime = false;
+    return prime;
+}
 
 /* 9. Write a JavaScript function which accepts an argument and returns the type. 
 Note: There are six possible values that typeof returns: object, boolean, function, number, string,
@@ -197,10 +209,20 @@ the desired value. */
 /* 19. Write a JavaScript function that returns array elements larger than a number.  */
 
 
+
 /* 20. Write a JavaScript function that generates a string id (specified length) of random characters.
 Sample   character   list:
 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" */
 
+function generateStringID(length){
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const characterArray = characters.split('');
+    let uniqueString = "";
+    for(let i=0; i<length; i++){
+        uniqueString += characterArray[Math.floor(Math.random() * characterArray.length)];
+    }
+    return uniqueString;
+}
 
 /* 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2)
 combinations in an array. 
@@ -269,6 +291,7 @@ function getLongestSubstring(phrase){
     let allSubstrings = [];
     let substring = "";
     for(let letter of phrase){
+        //reset the substring because there's a repeat character
         if(substring.includes(letter)){
             allSubstrings.push(substring);
             substring = "";
